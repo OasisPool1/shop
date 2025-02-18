@@ -9,8 +9,7 @@ import {
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Checkout } from "@/components/checkout";
 
 export async function generateStaticParams() {
   const districts = require("../../../../public/districts.json");
@@ -140,44 +139,7 @@ export default async function ProductPage({
         {/* Order Summary */}
         <div>
           <div className="rounded-lg bg-slate-50 p-6">
-            <h2 className="mb-4 text-lg font-semibold">Billing Address</h2>
-            <div className="mb-6 flex gap-4">
-              <img
-                src="/public/images/shoe-001.png"
-                width={80}
-                height={80}
-                className="rounded-lg"
-              />
-              <div>
-                <h3 className="font-medium">Converse high</h3>
-                <p className="text-muted-foreground">Black</p>
-                <p className="text-sm">x1</p>
-              </div>
-              <div className="ml-auto">
-                <span className="font-medium">$ 300.00</span>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Subtotal</span>
-                  <span className="font-medium">$300.00</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Discount</span>
-                  <span className="font-medium">-$0</span>
-                </div>
-                <div className="flex justify-between border-t pt-2">
-                  <span className="font-medium">Grand total</span>
-                  <span className="font-medium">$305.00</span>
-                </div>
-              </div>
-
-              <Button className="w-full bg-slate-900 hover:bg-slate-800">
-                Continue to payment
-              </Button>
-            </div>
+            <Checkout />
           </div>
         </div>
       </div>
