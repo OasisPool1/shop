@@ -2,63 +2,72 @@ import Header from "@/components/header";
 import { Button } from "@/components/ui/button";
 import { BellIcon, ShoppingCartIcon } from "lucide-react";
 import Link from "next/link";
+import { formatCurrency } from "@/lib/utils";
 
 const products = [
   {
     id: 1,
     name: "Sepatu Running Sport",
-    price: "Rp 450.000",
+    price: "450000",
     image: "https://source.unsplash.com/300x300/?running-shoes",
   },
   {
     id: 2,
     name: "Sneakers Kasual",
-    price: "Rp 520.000",
+    price: "520000",
     image: "https://source.unsplash.com/300x300/?sneakers",
   },
   {
     id: 3,
     name: "Sepatu Formal Kulit",
-    price: "Rp 780.000",
+    price: "780000",
     image: "https://source.unsplash.com/300x300/?leather-shoes",
   },
   {
     id: 4,
     name: "Sepatu Basket",
-    price: "Rp 680.000",
+    price: "680000",
     image: "https://source.unsplash.com/300x300/?basketball-shoes",
   },
   {
     id: 5,
     name: "Sepatu Lari Wanita",
-    price: "Rp 490.000",
+    price: "490000",
     image: "https://source.unsplash.com/300x300/?women-running-shoes",
   },
   {
     id: 6,
     name: "Sepatu Hiking",
-    price: "Rp 850.000",
+    price: "850000",
     image: "https://source.unsplash.com/300x300/?hiking-boots",
   },
   {
     id: 7,
     name: "Loafers Pria",
-    price: "Rp 720.000",
+    price: "720000",
     image: "https://source.unsplash.com/300x300/?loafers",
   },
   {
     id: 8,
     name: "Slip-On Kasual",
-    price: "Rp 390.000",
+    price: "390000",
     image: "https://source.unsplash.com/300x300/?slip-on-shoes",
   },
   {
     id: 9,
     name: "Sepatu Skateboard",
-    price: "Rp 580.000",
+    price: "580000",
     image: "https://source.unsplash.com/300x300/?skate-shoes",
   },
 ];
+
+export async function generateStaticParams() {
+  const districts = require("../../../public/districts.json");
+
+  return districts.map((name: string) => ({
+    slug: name.replace(/\s/g, "-"),
+  }));
+}
 
 export default async function HomePage({
   params,
@@ -158,7 +167,7 @@ export default async function HomePage({
                 {product.name}
               </h3>
               <p className="mt-2 text-lg font-bold text-blue-500">
-                {product.price}
+                {formatCurrency(product.price)}
               </p>
               <Link
                 href={{
