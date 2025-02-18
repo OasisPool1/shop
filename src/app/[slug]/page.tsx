@@ -78,7 +78,7 @@ export default async function HomePage({
 
   return (
     <>
-      <Header title={slug.split("-").join(" ")} />
+      <Header title={`Sepatune ${slug.split("-").join(" ")}`} />
       <section className="relative bg-gray-900 px-6 py-20 text-white md:px-12">
         <div className="mx-auto flex max-w-6xl flex-col items-center text-center">
           <h1 className="text-4xl font-bold leading-tight md:text-6xl">

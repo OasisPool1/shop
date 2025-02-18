@@ -19,6 +19,7 @@ export async function generateStaticParams() {
     slug: name.replace(/\s/g, "-"),
   }));
 }
+
 export default async function ProductPage({
   params,
 }: {
@@ -28,9 +29,9 @@ export default async function ProductPage({
 
   return (
     <>
-      <Header title={slug.split("-").join(" ")} />
+      <Header title={`Sepatune ${slug.split("-").join(" ")}`} />
 
-      <div className="grid gap-8 md:grid-cols-3 bg-white p-4">
+      <div className="grid gap-8 bg-white p-4 md:grid-cols-3">
         <div className="md:col-span-2">
           <div className="space-y-8">
             {/* Country Selection */}
